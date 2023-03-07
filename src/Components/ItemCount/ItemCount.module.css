@@ -1,0 +1,37 @@
+.ItemContador{
+    text-align: center;
+    margin: 5px;
+}
+.ItemNum{
+
+}
+.ItemSuma{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer; 
+    padding: 7px 10px;
+    border-radius: 10px;
+    background-color: #e1d4c7;
+    text-align: center;
+}
+.ItemResta{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer; 
+    padding: 7px 10px;
+    border-radius: 10px;
+    background-color: #e1d4c7;
+    text-align: center;
+}
+.ItemAgregar{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 7px 10px;
+    border-radius: 10px;
+    background-color: #e1d4c7;
+    text-align: center;
+}

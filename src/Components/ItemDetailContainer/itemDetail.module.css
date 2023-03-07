@@ -1,0 +1,19 @@
+.ItemDetail{
+    display: flex;
+    width:60%;
+    min-height: 20vh;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+    padding: 10px;
+    margin-left: 20%;
+}
+.ItemTitle{
+    font-size: 50px;
+}
+.ItemImg{
+    width: 50%;
+}
