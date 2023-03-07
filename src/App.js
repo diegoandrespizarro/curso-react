@@ -1,26 +1,27 @@
 
-
-import CartWidget from "./Components/CartWidget/CartWidget";
-import Footer from "./Components/Footer/Footer";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
-import Navbar from "./Components/Navbar/Navbar"
-import ProductCard from "./Components/ProdutCard/ProductCard";
+import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Cart from "./Components/Cart/Cart";
+import Login from "./Components/Cart/Login";
+import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
-    <div>
-      
+    <BrowserRouter>
       <Navbar />
-      <ItemListContainer greeting={"Hola como estas"} />
-      <ProductCard title="Producto 1" price={200} isRed={true}/>
-      <ProductCard title="Producto 2" price={500} isRed={false}/>
-      <ProductCard title="Producto 3"  isRed={false}/>
-      <Footer />
-    </div>
+        <Routes>
+              <Route path="/" element={<ItemListContainer />} />
+              <Route path="/category/:id" element={<ItemListContainer />} />
+              <Route path="/Cart" element={<Cart /> } />
+              <Route path="/item/:id" element={<ItemDetailContainer /> } />
+              <Route path="/Login" element={<Login/>} />
+              <Route path="*" element={<h1>Error 404: Not found</h1>} />
+        </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
 
 

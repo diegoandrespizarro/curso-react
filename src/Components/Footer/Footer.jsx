@@ -1,12 +1,14 @@
 
 
 
-const Footer = () => {
+const Footer = ( {children} ) => {
+
   return (
-    <h1>Footer</h1>
-  );
+    <div>
+      {children}
+      <h1>Footer</h1>
+    </div>
+  )
 }
 
 export default Footer
-
-//rafce para crear solo el componente

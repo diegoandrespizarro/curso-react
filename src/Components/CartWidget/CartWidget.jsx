@@ -1,12 +1,24 @@
+import { BsFillCartCheckFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import "./CartWidget.css"
 
-import { BsFillCartCheckFill } from "react-icons/bs"
+const CartWidget = ({numero}) => {
 
-const CartWidget = () => {
   return (
-    <div>
-        <BsFillCartCheckFill />
+  <Link to="/Cart">
+      <div className="container-cart">
+      <BsFillCartCheckFill
+        style={{
+          fontSize: "2rem",
+          color: "#e1d4c7",
+        }}
+      />
+      <div className="bubble-counter">
+        <span>0</span>
+      </div>
     </div>
-  )
-}
+  </Link>
+  );
+};
 
-export default CartWidget
+export default CartWidget;

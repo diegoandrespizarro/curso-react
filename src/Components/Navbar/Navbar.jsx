@@ -1,21 +1,24 @@
+import styles from "./Navbar.module.css";
 
+import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom"
+const Navbar = ({ children }) => {
+  let numero = 12;
+  return (
+    <div>
+      <div className={styles.containerNavbar}>
+        <Link to="/" style={{color: "#e1d4c7"}}> <img src="https://res.cloudinary.com/dhweg6cvn/image/upload/v1678218118/zapatillas/logochico_wrtunh.jpg" alt="" className={styles.navbarImg}/> </Link>
 
-import styles from "./Navbar.module.css"
-import zapa from "../../images/zapa.jpg"
-import CartWidget from "../CartWidget/CartWidget"
+        <ul className={styles.containerList}>
+          <Link to="/" className={styles.navbarItem}>Todas</Link>
+          <Link to="/category/urbanas" className={styles.navbarItem}>Urbanas</Link>
+          <Link to="/category/deportivas" className={styles.navbarItem}>Deportivas</Link>
+        </ul>
+        <CartWidget numero={numero} />
+      </div>
+      {children}
+    </div>
+  );
+};
 
-const Navbar = () => {
-
-    return ( 
-        <div className={styles.containerNavbar}>
-            <img src={zapa} alt=""  />
-                <ul className={styles.containerList}>
-                    <a href=""><li>Contacto</li></a>
-                    <a href=""><li>Quienes somos</li></a>
-                    <a href=""><li>Ayuda</li></a>
-                </ul>
-            <CartWidget />
-        </div>
-    )
-}
-export default Navbar
+export default Navbar;
