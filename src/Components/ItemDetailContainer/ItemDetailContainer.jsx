@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { CartContext } from '../../Context/CartContext'
 import { products } from '../../productsMock'
 import ItemCount from '../ItemCount/ItemCount'
 import styles from "./itemDetail.module.css"
@@ -8,11 +9,21 @@ import styles from "./itemDetail.module.css"
 const ItemDetailContainer = () => {
 
     const { id } = useParams()
-    
+
+    const {agregarAlCarrito} = useContext(CartContext)
+
     const productSelected = products.find( (element)=> element.id === Number(id))
 
     const onAdd = (cantidad) =>{
-      console.log(`se agrego al carrito ${cantidad} productos`)
+
+
+      let producto =  {
+        ...productSelected,
+        quantity: cantidad,
+      }
+
+      agregarAlCarrito(producto)
+
     }
     
   return (
