@@ -1,38 +1,51 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../../Context/CartContext'
-import { products } from '../../productsMock'
-import ItemCount from '../ItemCount/ItemCount'
-import styles from "./itemDetail.module.css"
-
+import { getDoc, collection, doc } from 'firebase/firestore'
+import Swal from 'sweetalert2'
+import { db } from '../../firebaseConfig'
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
-
     const { id } = useParams()
 
-    const {agregarAlCarrito} = useContext(CartContext)
+    const {agregarAlCarrito, getQuantityById} = useContext(CartContext);
 
-    const productSelected = products.find( (element)=> element.id === Number(id))
+    const[productSelected, setProductSelected] = useState({});
+
+    useEffect (()=>{
+      const itemCollection = collection(db, "products");
+      const ref = doc(itemCollection, id );
+      getDoc(ref).then( res =>{
+        setProductSelected({
+          ...res.data(),
+          id: res.id
+        });
+      });
+    },[id])
 
     const onAdd = (cantidad) =>{
-
-
-      let producto =  {
+      let producto = {
         ...productSelected,
         quantity: cantidad,
-      }
+      };
 
       agregarAlCarrito(producto)
-
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'su producto fue agregado',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
-    
+  let quantity = getQuantityById(Number(id))
+
   return (
-    <div className={styles.ItemDetail} >
-        <h1 className={styles.ItemTitle}>{productSelected.title}</h1>
-        <img src={productSelected.img} alt="" className={styles.ItemImg}/>
-        <ItemCount stock={productSelected.stock} onAdd={onAdd} className={styles.ItemContador}/>
-    </div>
+    <ItemDetail 
+    productSelected={productSelected}
+    onAdd={onAdd}
+    quantity={quantity}/>
   );
 };
-
 export default ItemDetailContainer;
