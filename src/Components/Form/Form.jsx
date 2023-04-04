@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 
-
 const Form = () => {
 
     const [userData, setUserData] = useState ({  
@@ -15,7 +14,6 @@ const Form = () => {
     const handleChange = (e) => {
         setUserData({...userData, [e.target.name]: e.target.value } );
     };
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,13 +39,11 @@ const Form = () => {
             setError(true)
             return
         }
-        console.log(userData)
     };
-
 
     return (
     <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-item">
             <input type="text" placeholder="ingrese su nombre" onChange={handleChange} name="name" />
             <input type="text" placeholder="Ingrese su email" name="email" onChange={handleChange} />
             <input type="text" placeholder="Ingrese su contraseña" name="password" onChange={handleChange} />

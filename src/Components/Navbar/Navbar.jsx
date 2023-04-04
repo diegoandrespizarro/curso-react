@@ -26,7 +26,6 @@ const Navbar = ({ children }) => {
     <div>
       <div className={styles.containerNavbar}>
         <Link to="/" style={{color: "#e1d4c7"}}> <img src="https://res.cloudinary.com/dhweg6cvn/image/upload/v1678218118/zapatillas/logochico_wrtunh.jpg" alt="" className={styles.navbarImg}/> </Link>
-        
         <ul className={styles.containerList}>
         {categoryList.map((category) => {
             return (

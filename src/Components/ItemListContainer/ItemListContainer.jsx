@@ -36,7 +36,7 @@ const ItemListContainer = () => {
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
         <PulseLoader
-          color={"#7F669D"}
+          color={"steelblue"}
           size={50}
           aria-label="Loading Spinner"
           data-testid="loader"

@@ -8,7 +8,6 @@ const  ItemDetail = ({productSelected, onAdd, quantity}) => {
         <div className={"containerImage"}>
           <img src={productSelected.img} alt="" />
         </div>
-
       <div className={"containerDetail"}>
           <h2 style={{ fontFamily: "monospace" }}>
             <span style={{ fontSize: "23px" }}>Nombre:</span>{" "}

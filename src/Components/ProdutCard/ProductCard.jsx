@@ -2,7 +2,6 @@ import "./ProductCard.css"
 
 const ProductCard = ( {title, price=0, isRed, login} ) => {
 
-
   const saludar = (  )=>{
     console.log("hola ")
   }
@@ -11,7 +10,6 @@ const ProductCard = ( {title, price=0, isRed, login} ) => {
     console.log("hola " + nombre )
   }
 
-  
   return (
     <div>
         <h1 className={ isRed ? "red" : "blue" }> {title} </h1>

@@ -13,8 +13,6 @@ const ConsumiendoApis = () => {
 
     }, []);
 
-    console.log(posts)
-
   const [isCreated, setIsCreated] = useState(false);
 
  const crearPost = ()=>{
@@ -33,7 +31,6 @@ const ConsumiendoApis = () => {
     createPost.then((res) => setIsCreated(true));
  }
 
-  console.log(isCreated)
   return <div>
     <button onClick={crearPost}>Crear post</button>
   </div>;
